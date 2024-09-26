@@ -4,3 +4,9 @@
 *:after {
   box-sizing: border-box;
 }
+
+.car-specs {
+  background-image: url("../images/vehicles/delorean-tn.jpg");
+  background-repeat: no-repeat;
+  background-position-x: 20%;
+}
