@@ -11,16 +11,74 @@
 
 .car-specs {
   position: relative;
-  background-image: url("../images/vehicles/delorean-tn.jpg");
-  background-repeat: no-repeat;
-  background-position-x: 20%;
-  background-size: 60%;
-  height: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 300px;
+  background-color: green;
   
+}
+
+.action{
+  color: black;
+  padding: 0.6rem;
+  background-color: #01B0D2;
+  width: 6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.car-details{
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  position: absolute;
+  width: 9rem;
+  height: 8rem;
+  opacity: 0.7;
+  background-color: gainsboro;
+  left: 2rem;
+  top: 1rem;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.car-details li{
+  list-style-type: none;
+  margin-right: 1rem;
+  padding: 0.1rem;
+  color: #01B0D2;
+}
+
+
+.car-details h2{
+  margin-top: -0.5;
+}
+.hero-image{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18rem;
+  height: 10rem;
+  bottom: 0;
+  top: 0.6rem;
+  left: 6.5rem;
+  z-index: -1;
+}
+
+.hero-image img{
+  width: 100%;
+  height: 100%;
 }
 
 .heading{
   font-size: 1.2rem;
+  font-family: sans-serif;
+  margin-left: 0.4rem;
 }
 
 header{
@@ -29,6 +87,7 @@ header{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 1.6rem;
 }
 
 header a{
@@ -39,7 +98,7 @@ header a{
 a.cse-motors{
   font-size: 1.3rem;
   font-weight: bold;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: sans-serif, Times, serif;
 }
 
 a.my-account{
@@ -47,6 +106,8 @@ a.my-account{
   font-weight: bold;
   right: 0;
   margin-right: 1.2rem;
+  top: 1.5rem;
+  font-family: sans-serif, Times, serif;
 
 }
 
@@ -60,7 +121,8 @@ nav ul{
   justify-content: space-between;
   align-items: center;
   background-color: black;
-  padding: 0.5rem;
+  padding: 0.8rem;
+  margin: 0 0.5rem;
 }
 
 nav ul li{
@@ -68,23 +130,21 @@ nav ul li{
   color: white;
 }
 
+nav ul li a{
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif, 'Times New Roman', Times, serif;
+}
+
+nav ul li a:hover{
+  text-decoration: underline;
+}
 .car-details h2, p{
-  color: blue;
+  color: #01B0D2;
 }
 
-.action{
-  color: black;
-  padding: 0.3rem;
-  background-color: blue;
-  width: 8rem;
-}
-
-.car-details{
-  position: absolute;
-  width: 10rem;
-  opacity: 0.7;
-  background-color: gainsboro;
-  left: 5rem;
+div.car-upgrades, div.car-parts{
+  width: 100%;
 }
 
 div.delorean-carUpgrades{
@@ -107,9 +167,13 @@ div.upgrade-container{
   display: flex;
   justify-content:center ;
   align-items: center;
-  background-color: blue;
+  background-color: #01B0D2;
   width: 100%;
   height: 5.6rem;
+}
+
+.upgrade-detail{
+  text-decoration: underline;
 }
 
 footer p{
@@ -125,6 +189,7 @@ footer p{
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 12rem;
 }
 
 
@@ -135,50 +200,6 @@ footer p{
     background-position: center;
     background-repeat: no-repeat;
   }
-  .car-details-upgrades{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-
-  .car-specs {
-    background-image: url("../images/vehicles/delorean.jpg");
-    background-repeat: no-repeat;
-    background-size: 50%;
-    background-position: center;
-    height: 18rem;
-  }
-
-  .car-parts{
-    width: 100%;
-    margin-left: 1rem;
-  }
-
-  .car-upgrades{
-    width: 100%;
-    margin-right: 1rem;
-  }
-  .car-parts li{
-    font-size: 1.2rem;
-  }
-
-  .upgrade-detail{
-    text-decoration: underline;
-    margin-top: -0.1rem;
-    padding: 0.1rem;
-  }
-
-  .car-details{
-    position: absolute;
-    left: 20%;
-    top: 40%;
-    width: 14rem;
-    font-size: 1.1rem;
-  }
-  
   #wrapper{
     border: 4px solid blue;
     margin: 1.1rem 3rem;
@@ -186,80 +207,235 @@ footer p{
     z-index: 1;
     background-color: white;
   }
+
+  .car-specs{
+    width: 100%;
+  }
+  .hero-image{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+    height: 20rem;
+    bottom: 0;
+    top: 0.6rem;
+    left: 18rem;
+    z-index: 1;
+  }
+
+  .hero-image img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .car-details{
+    z-index: 2;
+  }
+
   
   .heading{
-    font-size: 2.5rem;
-    margin-left: 1rem;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    margin-left: 0.4rem;
   }
   
-  header{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1.3rem;
-  }
   
-  #tools{
-    position: absolute;
-    right:0;
-    margin-right: 1rem;
+  .car-details-upgrades{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-flow: row;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 22rem;
+  }
+
+  .car-upgrades{
+    margin-left: -2rem;
+  }
+
+  .car-parts{
+    margin-left:  1rem;
+  }
+
   
-  }
-  
-  .siteName{
-    position: absolute;
-    left:0;
-    margin-left: 1rem;
-  }
-  header a{
-    text-decoration: none;
-    color: black;
-  }
-  
-  a.cse-motors{
-    font-size: 2rem;
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  
-  a.my-account{
-    font-weight: bold;
-  }
-  
-  nav{
-    margin: 0 0.4rem;
-  }
-  nav ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    padding: 0.8rem;
-    gap: 10rem;
-  }
-  
-  nav ul li{
-    list-style-type: none;
-    color: white;
-  }
-  
-  .action{
-    color: black;
-    padding: 0.3rem;
-    background-color: blue;
-    width: 10rem;
-    height: 3rem;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  footer p{
-    color: black;
-    font-weight: bold;
-    font-size: 1.3rem;
-  }
+.action{
+  color: black;
+  padding: 0.6rem;
+  background-color: blue;
+  width: 6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
+
+.car-details{
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  position: absolute;
+  width: 20rem;
+  height: 15rem;
+  opacity: 0.7;
+  background-color: gainsboro;
+  left: 8rem;
+  top: 2rem;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.car-details li{
+  list-style-type: none;
+  margin-right: 1rem;
+  padding: 0.3rem;
+  color: blue;
+}
+
+
+.car-details h2{
+  margin-top: -0.6;
+}
+
+nav li a{
+  font-size: 1.1rem;
+}
+
+
+.heading{
+  font-size: 2.5rem;
+  font-family: sans-serif;
+  margin-left: 0.6rem;
+}
+
+
+.action{
+  color: black;
+  padding: 1rem;
+  background-color: blue;
+  width: 11rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.car-parts li{
+  font-size: 1.3rem;
+}
+
+a.cse-motors{
+  font-size: 2rem;
+}
+
+a.my-account{
+  font-size: 1.1rem;
+
+}
+  
+
+footer p{
+  font-size: 1.1rem;
+}
+
+#inv-display{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-flow: row;
+  gap: 1rem;
+  width: 100%;
+
+}
+
+#inv-display li{
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+#inv-display li img{
+  width: 280px;
+}
+
+.inventory-details{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  grid-auto-flow: row;
+  width: 100%;
+}
+
+.description{
+  font-weight: bold;
+  text-align: center;
+}
+
+.first-details{
+  width: 100%;
+  height: 20rem;
+  margin-left: 1rem;
+}
+
+.second-details{
+  width: 100%;
+  margin-right: 2rem;
+
+}
+
+
+.first-details img{
+  width: 100%;
+  height: 100%;
+}
+
+.second-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.third-details{
+  position: relative;
+  display: grid;
+  grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+  width: 100%;
+  gap: 1rem;
+}
+.price{
+  grid-column: 1/3;
+  grid-row: 1/2;
+  border: 2px solid green;
+  text-align: center;
+}
+
+.miles{
+  grid-column: 3/4;
+  grid-row: 1/2;
+  border: 2px solid yellow;
+  text-align: center;
+}
+
+.color{
+  grid-column: 1/4;
+  grid-row: 2/3;
+  border: 2px solid  blue;
+  text-align: center;
+}
+
+.contact{
+  grid-column: 1/4;
+  grid-row: 3/4;
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.purchase{
+ text-align: center;
+  font-weight: bold;
+  padding: 0.2rem;
+}
+}
+
 
