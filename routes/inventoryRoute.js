@@ -7,7 +7,7 @@ const invController = require("../controllers/invController")
 
 //Route to build inventory by classification view
 router.get("/type/:classificationId", invCont.buildByClassificationId);
-router.get("/detail/:inventoryId", invCont.buildByInventoryId)
+router.get("/detail/:inventoryId", utilities.handleErrors(invCont.buildByInventoryId))
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 //Route to edit the inventory item
 router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryItem))

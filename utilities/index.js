@@ -66,8 +66,8 @@ Util.buildCarDetailsDisplay = async function(data) {
     return `
       <div class="inventory-details">
         <div class="first-details">
-          <p class="description">${data.inv_description}</p>
           <img src="${data.inv_image}" alt="image of ${data.inv_make}" title="details of ${data.inv_make}" class="inventory-image">
+            <p class="description">${data.inv_description}</p>
         </div>
         <div class="second-details">
           <h2 class="details-title">${data.inv_year} ${data.inv_make} ${data.inv_model}</h2>
