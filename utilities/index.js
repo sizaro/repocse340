@@ -31,6 +31,7 @@ Util.getNav = async function(req, res, next) {
       list += '<a href="/inv/type/' + row.classification_id + '" title="See our inventory of ' + row.classification_name + ' vehicles">' + row.classification_name + '</a>'
       list += '</li>'
   });
+    list +='<li id="form-li"><form action="/search" method="get" id="searchAll"><div id="input-container"><input type="text" id="inputValue" placeholder="Search All" name="inputValue" ><button id="searchButton">Click</button></div></form></li>'
   list += "</ul>"
   return list
 }
@@ -137,21 +138,66 @@ Util.buildRegisterForm = async function() {
     </div>
     `    
   }
+  Util.searchAll = async function(data) {
+    console.log(data); 
+    return data.map(carData => {
+        return `
+            <div class="allinv-details">
+              <div class="allfirst-details">
+                <img src="${carData.inv_image || '/images/default-image.jpg'}" alt="Image of ${carData.inv_make || 'vehicle'}" title="Details of ${carData.inv_make || 'vehicle'}" class="allinventory-image">
+              </div>
+              <div class="allsecond-details">
+                <h2 class="alldetails-title">${carData.inv_year || ''} ${carData.inv_make || ''} ${carData.inv_model || 'Model Unknown'}</h2>
+                <h3 class="allclassification">${carData.classification_name || 'Classification Unknown'}</h3>
+                <div class="allprice">
+                  <h3>Price</h3>
+                  <p>$${carData.inv_price ? new Intl.NumberFormat('en-US').format(Number(carData.inv_price)) : 'N/A'}</p>
+                </div>
+                <button class="allpurchase">Start Purchase</button>
+              </div>
+            </div>
+        `;
+    }).join('');
+};
 
-  Util.searchAllDisplay = async function(data) {
+Util.searchAll = async function(data) {
+  console.log(data); 
+  return data.map(carData => {
+      return `
+          <div class="allinv-details">
+            <div class="allfirst-details">
+              <img src="${carData.inv_image || '/images/default-image.jpg'}" alt="Image of ${carData.inv_make || 'vehicle'}" title="Details of ${carData.inv_make || 'vehicle'}" class="allinventory-image">
+            </div>
+            <div class="allsecond-details">
+              <h2 class="alldetails-title">${carData.inv_year || ''} ${carData.inv_make || ''} ${carData.inv_model || 'Model Unknown'}</h2>
+              <h3 class="allclassification">${carData.classification_name || 'Classification Unknown'}</h3>
+              <div class="allprice">
+                <h3>Price</h3>
+                <p>$${carData.inv_price ? new Intl.NumberFormat('en-US').format(Number(carData.inv_price)) : 'N/A'}</p>
+              </div>
+              <button class="allpurchase">Start Purchase</button>
+            </div>
+          </div>
+      `;
+  }).join('');
+};
+
+
+/*
+Util.searchAll = async function(data) {
     console.log(data); 
   return data.map(carData => {
 
  return `
-        <div class="inv-details">
-          <div class="first-details">
+        <div class="allinv-details">
+          <div class="allfirst-details">
             <p class="description">${carData.inv_description || ''}</p>
             <img src="${carData.inv_image || '/images/default-image.jpg'}" alt="image of ${carData.inv_make || 'vehicle'}" title="details of ${carData.inv_make || 'vehicle'}" class="inventory-image">
           </div>
-          <div class="second-details">
-            <h2 class="details-title">${carData.inv_year || ''} ${carData.inv_make || ''} ${carData.inv_model || 'Model Unknown'}</h2>
-            <h3 class="classification">${carData.classification_name || 'Classification Unknown'}</h3>
-            <div class="third-details">
+          <div class="allsecond-details">
+            <h2 class="alldetails-title">${carData.inv_year || ''} ${carData.inv_make || ''} ${carData.inv_model || 'Model Unknown'}</h2>
+            <h3 class="allclassification">${carData.classification_name || 'Classification Unknown'}</h3>
+            <div class="allthird-details">
               <div class="price">
                 <h3>Price</h3>
                 <p>$${carData.inv_price ? new Intl.NumberFormat('en-US').format(Number(carData.inv_price)) : 'N/A'}</p>
@@ -172,8 +218,8 @@ Util.buildRegisterForm = async function() {
           </div>
         </div>
       `;
-    }).join(''); // Join the HTML segments into one string
-  };
+    }).join('');
+  };*/
   
 Util.vehicleManagement = async function() {
   return `

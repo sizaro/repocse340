@@ -32,7 +32,7 @@ const filteredResults = searchResults.filter(res => {
 });
 
 
-    const searchView = await utilities.searchAllDisplay(filteredResults);
+    const searchView = await utilities.searchAll(filteredResults);
     console.log("Final search view:", searchView); 
     res.render("search", { title: "Search Results", nav, searchView });
     } catch (error) {

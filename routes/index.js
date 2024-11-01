@@ -8,7 +8,7 @@ const clasCont = require("../controllers/classification")
 const utilities = require("../utilities/")
 
 router.get("/", utilities.handleErrors(accountCont.buildHome))
-router.get("/search", searchCont.buildSearch)
+router.get("/search", utilities.handleErrors(searchCont.buildSearch))
 router.get("/inv", utilities.handleErrors(invCont.buildAddCarView))
 router.get("/newclassification", clasCont.newClassification)
 /*router.get("/newcar", clasCont.newCar)
