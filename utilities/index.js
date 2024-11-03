@@ -122,9 +122,9 @@ Util.buildRegisterForm = async function() {
     return` <div class="form-container">
         <form action="/account/register" method="post" class="formElement">
             <label for="first_name" id="first_name" >First name:</label>
-            <input type="text" name="account_firstname" id="account_firstname" required><br>
+            <input type="text" name="account_firstname" id="accountFirstname" required value="<%= locals.account_firstname %>"><br>
             <label for="last_name" id="last_name" >Last name:</label>
-            <input type="text" name="account_lastname" id="account_lastname" required><br>
+            <input type="text" name="account_lastname" id="accountLastname" required value="<%= locals.account_lastname %>"><br>
             <label for="email" id="email_address" >Email Address:</label>
             <input type="email" name="account_email" id="account_emailaddress" title="enter a valid email address" required><br>
             <label for="password" id="account_password" >Password:</label>

@@ -440,6 +440,102 @@ display: flex;
 }
 
 
+/* Styling for Add new car form */
+
+#newCarForm {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to the top for better spacing */
+  width: 100%;
+  max-width: 600px; /* Limit the maximum width */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 0 auto;
+  overflow: auto; /* Add overflow to handle content if needed */
+}
+
+#newCarFormArea {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Gap between elements */
+}
+
+#newCarFormArea h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#newCarFormArea p {
+  font-weight: bold;
+  text-align: center;
+  color: #c00;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%; /* Full width for input elements */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #fafafa;
+  box-sizing: border-box; /* Include padding in total width */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  background-color: #fff;
+}
+
+textarea {
+  resize: vertical; /* Allow vertical resizing only */
+  min-height: 80px; /* Set a minimum height */
+}
+
+button[type="submit"] {
+  width: 100%; /* Full width for the button */
+  padding: 12px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Style for required field notice */
+#newCarFormArea p.required {
+  font-size: 14px;
+  color: #d9534f; /* Red color for required field notice */
+}
+
+
+
 @media  screen and (min-width:560px) {
 
   

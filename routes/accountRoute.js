@@ -7,10 +7,10 @@ const router = new express.Router()
 const accountCont = require("../controllers/accountController")
 
 //Route to get the login page
-router.get("/login", accountCont.buildLoginView)
+router.get("/login", utilities.handleErrors(accountCont.buildLoginView))
 
 //Route to get the login page
-router.post("/login", /*regValidate.loginRules(), regValidate.checkLoginData,*/ accountCont.accountLogin)
+router.post("/login", regValidate.loginRules(), regValidate.checkLoginData, utilities.handleErrors(accountCont.accountLogin))
 
 // Protected route example
 /*router.get('/profile', authUser.ensureAuthenticated, accountCont.displayProfile);*/

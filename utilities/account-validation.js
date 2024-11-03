@@ -1,5 +1,6 @@
 const utilities = require("../utilities")
   const { body, validationResult } = require("express-validator")
+  const accountModel = require("../models/account-model")
   const validate = {}
 
   /*  **********************************
@@ -23,14 +24,18 @@ const utilities = require("../utilities")
         .isLength({ min: 2 })
         .withMessage("Please provide a last name."), // on error this message is sent.
   
-      // valid email is required and cannot already exist in the DB
-      body("account_email")
-      .trim()
-      .escape()
-      .notEmpty()
-      .isEmail()
-      .normalizeEmail() // refer to validator.js docs
-      .withMessage("A valid email is required."),
+      // valid email is required and cannot already exist in the database
+        body("account_email")
+        .trim()
+        .isEmail()
+        .normalizeEmail() // refer to validator.js docs
+        .withMessage("A valid email is required.")
+        .custom(async (account_email) => {
+          const emailExists = await accountModel.checkExistingEmail(account_email)
+          if (emailExists){
+            throw new Error("Email exists. Please log in or use different email")
+          }
+        }),
   
       // password is required and must be strong password
       body("account_password")
@@ -69,24 +74,89 @@ validate.checkRegData = async (req, res, next) => {
     next()
   }
 
+
+
+
+
+
+
+
+
+
+ /*  **********************************
+  *  login Data Validation Rules
+  * ********************************* */
+ validate.loginRules = () => {
+  return [
+
+    // valid email is required and cannot already exist in the database
+      body("account_email")
+      .trim()
+      .isEmail()
+      .normalizeEmail() // refer to validator.js docs
+      .withMessage("A valid email is required."),
+
+    // password is required and must be strong password
+    body("account_password")
+      .trim()
+      .notEmpty()
+      .isStrongPassword({
+        minLength: 12,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+      .withMessage("Password does not meet requirements."),
+  ]
+}
+
+/* ******************************
+* Check data and return errors or continue through the login
+* ***************************** */
+validate.checkLoginData = async (req, res, next) => {
+  const { account_email, account_password } = req.body
+  let errors = []
+  errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    res.render("account/login", {
+      errors,
+      title: "Login",
+      nav,
+      account_email
+    })
+    return
+  }
+  next()
+}
+
+
+
+
+
+
+
+
   
   /*  **********************************
   *  Classification Rules
   * ********************************* */
-  validate.classificationRules = () => {
+validate.classificationRules = () => {
     return [
-      // firstname is required and must be string
+      // classification name is required and must be string with no space
       body("classification_name")
         .trim()
         .escape()
         .notEmpty()
         .isLength({ min: 1 })
+        .matches(/^\S*$/)
         .withMessage("Please provide a classification name with no space in it."),
     ]
   }
 
   /* ******************************
- * Check data and return errors or continue to classification
+ * Check data and return errors or continue to classification view
  * ***************************** */
 validate.checkClassificationData = async (req, res, next) => {
     const { classification_name } = req.body
@@ -94,8 +164,8 @@ validate.checkClassificationData = async (req, res, next) => {
     errors = validationResult(req)
     if (!errors.isEmpty()) {
       let nav = await utilities.getNav()
-      res.render("/addclassification", {
-        errors,
+      res.render("inventory/newclassification", {
+        errors:null,
         title: "Add New Classification",
         nav,
         classification_name
@@ -110,16 +180,14 @@ validate.checkClassificationData = async (req, res, next) => {
   *  New Inventory Rules
   * ********************************* */
 
-  validate.newInventoryRules = () => {
+  validate.newCarRules = () => {
       return [
           // classification_name is required and must be one of the specified values
-          body("classification_name")
+          body("classification_id")
               .trim()
               .escape()
               .notEmpty()
-              .withMessage("Classification is required.")
-              .isIn(["Sedan", "Sport", "NewCar", "SUV", "Truck"])
-              .withMessage("Invalid classification selected."),
+              .withMessage("Classification is required."),
   
           // inv_make is required, only lowercase letters, min 3 characters, no spaces
           body("inv_make")
@@ -127,7 +195,7 @@ validate.checkClassificationData = async (req, res, next) => {
               .escape()
               .notEmpty()
               .isLength({ min: 3 })
-              .matches(/^[a-z]+$/)
+              .matches(/^[a-z]{3,}$/)
               .withMessage("Car make should only contain lowercase letters, at least 3 characters, and no spaces."),
   
           // inv_model is required, only letters, min 3 characters, no spaces
@@ -136,7 +204,7 @@ validate.checkClassificationData = async (req, res, next) => {
               .escape()
               .notEmpty()
               .isLength({ min: 3 })
-              .matches(/^[A-Za-z]+$/)
+              .matches(/^[A-Za-z]{3,}$/)
               .withMessage("Car model should only contain letters, at least 3 characters, and no spaces."),
   
           // inv_description is required, min 3 characters
@@ -152,16 +220,14 @@ validate.checkClassificationData = async (req, res, next) => {
               .trim()
               .escape()
               .notEmpty()
-              .equals('/image/vehicles/no-image.png')
-              .withMessage("Image path must be exactly '/image/vehicles/no-image.png'."),
+              .withMessage("Image path must be exactly '/image/vehicles/no-image.jpg'"),
   
           // inv_path is required, exact path /image/vehicles/no-image.png
-          body("inv_path")
+          body("inv_thumbnail")
               .trim()
               .escape()
               .notEmpty()
-              .equals('/image/vehicles/no-image.png')
-              .withMessage("Thumbnail path must be exactly '/image/vehicles/no-image.png'."),
+              .withMessage("Thumbnail path must be exactly '/image/vehicles/no-image.jpg'"),
   
           // inv_price is required, must be a number, min value 0
           body("inv_price")
@@ -181,7 +247,7 @@ validate.checkClassificationData = async (req, res, next) => {
           body("inv_miles")
               .trim()
               .notEmpty()
-              .isNumeric()
+              .matches(/^\d+$/) 
               .withMessage("Miles must contain only digits."),
   
           // inv_color is required, only letters, min 3 characters
@@ -190,23 +256,24 @@ validate.checkClassificationData = async (req, res, next) => {
               .escape()
               .notEmpty()
               .isLength({ min: 3 })
-              .matches(/^[A-Za-z]+$/)
+              .matches(/^[A-Za-z]{3,}$/)
               .withMessage("Color should only contain letters and be at least 3 characters long.")
-      ];
+      ]
   };
+  
 
   
   /* ******************************
  * Check data and return errors or continue to classification
  * ***************************** */
-  validate.checkNewVehicleData = async (req, res, next) => {
+  validate.checknewCarData = async (req, res, next) => {
     const { 
-      classification_name, 
+      classification_id, 
       inv_make, 
       inv_model, 
       inv_description, 
       inv_image, 
-      inv_path, 
+      inv_thumbnail, 
       inv_price, 
       inv_year, 
       inv_miles, 
@@ -214,24 +281,24 @@ validate.checkClassificationData = async (req, res, next) => {
     } = req.body;
   
     // Run validation checks and store any errors
-    const errors = validationResult(req);
+    let errors = []
+    errors = validationResult(req)
   
     // Check for validation errors
     if (!errors.isEmpty()) {
-      const errorArray = errors.array();
-  
-      // Generate navigation and render page with error messages
+      // display navigation and render page with error messages
       let nav = await utilities.getNav();
-      res.render("classification", {
-        errors: errorArray,
-        title: "Add New Classification",
+      let classificationList = await utilities.buildClassificationList()
+      res.render("inventory/newcar", {
+        errors,
+        title: "Add New Car",
         nav,
-        classification_name,
+        classificationList,
         inv_make,
         inv_model,
         inv_description,
         inv_image,
-        inv_path,
+        inv_thumbnail,
         inv_price,
         inv_year,
         inv_miles,

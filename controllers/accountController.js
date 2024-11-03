@@ -10,11 +10,12 @@ const bcrypt = require('bcrypt');
 * *************************************** */
 async function buildLoginView(req, res, next) {
     let nav = await utilities.getNav()
-    const loginForm = await utilities.buildLoginForm()
+    //const loginForm = await utilities.buildLoginForm()
     res.render("account/login", {
       title: "Login",
       nav,
-      loginForm
+      errors: null,
+      //loginForm
     })
   }
   
@@ -24,11 +25,10 @@ async function buildLoginView(req, res, next) {
 * *************************************** */
 async function buildRegisterView(req, res, next) {
   let nav = await utilities.getNav()
-  let RegisterForm = await utilities.buildRegisterForm()
+  //let RegisterForm = await utilities.buildRegisterForm()
   res.render("account/register", {
     title: "Register",
     nav,
-    RegisterForm,
     errors: null,
   })
 }
@@ -38,8 +38,8 @@ async function buildRegisterView(req, res, next) {
  * *************************************** */
 async function registerAccount(req, res) {
   let nav = await utilities.getNav();
-  const loginForm = await utilities.buildLoginForm();
-  const RegisterForm = await utilities.buildRegisterForm();
+  //const loginForm = await utilities.buildLoginForm();
+  //const RegisterForm = await utilities.buildRegisterForm();
   const { account_firstname, account_lastname, account_email, account_password } = req.body;
 
   try {
@@ -60,14 +60,14 @@ async function registerAccount(req, res) {
       res.status(201).render("account/login", {
         title: "Login",
         nav,
-        loginForm,
+        errors: null
       });
     } else {
       req.flash("notice", "Sorry, the registration failed.");
       res.status(501).render("account/register", {
         title: "Registration",
         nav,
-        RegisterForm,
+        errors: null
       });
     }
   } catch (error) {
@@ -76,7 +76,6 @@ async function registerAccount(req, res) {
     res.status(500).render("account/register", {
       title: "Registration",
       nav,
-      RegisterForm,
       errors: error.message,
     });
   }
@@ -90,12 +89,14 @@ async function accountLogin(req, res) {
   let nav = await utilities.getNav()
   const { account_email, account_password } = req.body
   const accountData = await acctModel.getAccountByEmail(account_email)
+  const loginForm = await utilities.buildLoginForm()
   if (!accountData) {
     req.flash("notice", "Please check your credentials and try again.")
     res.status(400).render("account/login", {
       title: "Login",
       nav,
       errors: null,
+      loginForm,
       account_email,
     })
     return

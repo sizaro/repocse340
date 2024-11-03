@@ -4,4 +4,20 @@
       res.redirect('/')
     } %>
     <%- messages() %>
-    <%- loginForm %>
+    <% if (errors) { %>
+      <ul class="notice">
+        <% errors.array().forEach(error => { %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    <% } %>
+    <div class="form-container">
+      <form action="/account/login" method="post" id="formElement">
+          <label for="email" id="account_email" >Email:</label><br>
+          <input type="email" name="account_email" id="account_email" required value="<%= locals.account_email || '' %>"><br>
+          <label for="password" id="account_password" >Password:</label><br>
+          <input type="text" name="account_password" id="account_password" required><br>
+          <button class="login-button" type="submit">LOGIN</button><br>
+          <p id="no-account">No account? <span id="signup-link"><a href="/account/signup">Sign-up</a></span></p>
+      </form>
+  </div>
