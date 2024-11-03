@@ -88,7 +88,7 @@ Util.buildCarDetailsDisplay = async function(data) {
             </div>
             <div class="miles">
               <h3>Miles</h3>
-              <p>${data.inv_miles}</p>
+              <p>${new Intl.NumberFormat('en-US').format(Number(data.inv_miles))}</p>
             </div>
             <div class="color">
               <h3>Color</h3>
