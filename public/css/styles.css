@@ -1,4 +1,7 @@
 /******* Change Box Model ***************/
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 *,
 *:before,
 *:after {
@@ -17,7 +20,6 @@
   flex-direction: row;
   width: 300px;
   background-color: green;
-  
 }
 
 .action{
@@ -27,6 +29,7 @@
   width: 6rem;
   font-size: 0.8rem;
   font-weight: bold;
+  font-family: 'Roboto', sans-serif; /* Apply custom font */
 }
 
 .car-details{
@@ -37,11 +40,11 @@
   position: absolute;
   width: 9rem;
   height: 8rem;
-  background-color: rgba(255, 255, 255, 0.4) ;
+  background-color: rgba(255, 255, 255, 0.4);
   left: 2rem;
   top: 1rem;
   font-size: 0.8rem;
-  font-family: sans-serif;
+  font-family: 'PT Sans', sans-serif; /* Apply custom font */
   font-weight: bold;
 }
 
@@ -52,10 +55,11 @@
   color: #01B0D2;
 }
 
-
 .car-details h2{
   margin-top: -0.5em;
+  font-family: 'PT Sans', sans-serif; /* Apply custom font */
 }
+
 .hero-image{
   position: absolute;
   display: flex;
@@ -76,7 +80,7 @@
 
 .heading{
   font-size: 1.2rem;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif; /* Apply custom font */
   margin-left: 0.4rem;
 }
 
@@ -87,17 +91,19 @@ header{
   justify-content: space-between;
   align-items: center;
   padding: 1.6rem;
+  font-family: 'Roboto', sans-serif; /* Apply custom font */
 }
 
 header a{
   text-decoration: none;
   color: black;
+  font-family: 'Roboto', sans-serif; /* Apply custom font */
 }
 
 a.cse-motors{
   font-size: 1.2rem;
   font-weight: bold;
-  font-family: sans-serif, Times, serif;
+  font-family: 'PT Sans', sans-serif; /* Apply custom font */
 }
 
 a.my-account{
@@ -105,8 +111,7 @@ a.my-account{
   right: 0;
   margin-right: 1.2rem;
   top: 1.5rem;
-  font-family: sans-serif, Times, serif;
-
+  font-family: 'PT Sans', sans-serif; /* Apply custom font */
 }
 
 nav{
@@ -131,12 +136,13 @@ nav ul li{
 nav ul li a{
   text-decoration: none;
   color: white;
-  font-family: sans-serif, 'Times New Roman', Times, serif;
+  font-family: 'Roboto', sans-serif; /* Apply custom font */
 }
 
 nav ul li a:hover{
   text-decoration: underline;
 }
+
 .car-details h2, p{
   color: #01B0D2;
 }
@@ -179,8 +185,8 @@ footer p{
   color: black;
   font-weight: bold;
   font-size: 0.8rem;
+  font-family: 'Roboto', sans-serif; /* Apply custom font */
 }
-
 
 .car-details-upgrades{
   display: flex;
@@ -207,7 +213,6 @@ footer p{
   justify-items: center;
   align-items: center;
   background-color: white;
-  
 }
 
 .namePrice{
@@ -259,7 +264,6 @@ footer p{
   box-shadow: 4px 8px 14px rgba(0, 0, 0, 0.8);
   gap: 1rem;
   margin: 0 2rem;
-
 }
 
 .description{
@@ -268,6 +272,7 @@ footer p{
   text-shadow: 0.5px 1px 2px rgba(0, 0, 0, 0.6);
   justify-self: center;
   align-self: center;
+  font-family: 'PT Sans', sans-serif; /* Apply custom font */
 }
 
 .details-title{
@@ -275,6 +280,7 @@ footer p{
   width: 100%;
   background-color: whitesmoke;
   text-align: center;
+  font-family: 'PT Sans', sans-serif; /* Apply custom font */
 }
 
 .price{
@@ -286,16 +292,16 @@ footer p{
   width: 80%;
   padding: 1rem;
   border: 1px solid black;
-  
 }
 
 .price h3, .price p{
   color: black;
   font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif; /* Apply custom font */
 }
 
 .miles{
-display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
@@ -309,10 +315,11 @@ display: flex;
 .miles h3, .miles p{
   color: black;
   font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif; /* Apply custom font */
 }
 
 .color{
- display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
@@ -325,766 +332,59 @@ display: flex;
 .color h3, .color p{
   color: black;
   font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif; /* Apply custom font */
 }
 
 .contact{
- display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  gap: 2rem;
-  width: 80%;
-  padding: 1rem;
-  background-color: rgba(44, 71, 44, 0.6);
-  border: 1px solid black;
+  flex-direction: column;
 }
 
 .contact h3{
-  color: white;
+  color: black;
   font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif; /* Apply custom font */
 }
 
-.contact button{
-  width: 50%;
-  padding: 1rem;
-  background-color: #073255;
-  border: 1px solid black;
-  color: white;
-}
-
-.contact button:hover{
-  width: 50%;
-  border-radius: 1rem;
-  background-color: #324453;
-  border: 1px solid black;
-  font-size: 1.1rem;
-}
-
-/*styling for all searched records*/
-
-.allinv-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin: 10px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.allfirst-details {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.allinventory-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-.allsecond-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  text-align: center;
-}
-
-.alldetails-title {
-  font-size: 1.4em;
-  color: #333;
-}
-
-.allclassification {
-  font-size: 1.2em;
-  color: #555;
-}
-
-.allprice {
-  font-size: 1.2em;
-  color: #333;
-}
-
-.allpurchase {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.3s ease;
-}
-
-.allpurchase:hover {
-  background-color: #45a049;
-}
-
-/*styling for the search all*/
-
-#searchButton {
-  padding: 8px 12px;
-  border: none;
-  background-color: #4CAF50;
-  color: white;
-  cursor: pointer;
-  border-radius: 0 4px 4px 0;
-  transition: background-color 0.3s ease;
-}
-
-#searchButton:hover {
-  background-color: #45a049;
-}
-
-
-/* Styling for Add new car form */
-
-#newCarForm {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; 
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 400px;
-  background-color: #007bff;
-  color: whitesmoke;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  margin: 0 auto;
-  overflow: auto; /* Add overflow to handle content if needed */
-}
-
-#newCarForm label, #newCarForm p{
-  color: whitesmoke;
-}
-
-#newCarForm button{
-  background-color: gray;
-}
-
-#newCarForm button:hover{
-  background-color: rgb(22, 3, 3);
-  padding: 0.5rem;
-}
-#newCarFormArea {
-  display: flex;
-  flex-direction: column;
-  gap: 12px; /* Gap between elements */
-  width: 100%;
-  margin: 3rem 1rem 1erm 1rem;
-}
-
-#newCarFormArea h2 {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-#newCarFormArea p {
-  font-weight: bold;
-  text-align: center;
-  color: #c00;
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
-}
-
-input[type="text"],
-input[type="number"],
-select,
-textarea {
-  width: 100%; /* Full width for input elements */
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: #fafafa;
-  box-sizing: border-box; /* Include padding in total width */
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-select:focus,
-textarea:focus {
-  border-color: #007bff;
-  outline: none;
-  background-color: #fff;
-}
-
-textarea {
-  resize: vertical; 
-}
-
-button[type="submit"] {
-  width: 100%; /* Full width for the button */
-  padding: 12px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-/* Style for required field notice */
-#newCarFormArea p.required {
-  font-size: 14px;
-  color: #d9534f; /* Red color for required field notice */
-}
-
-/** styling the vehicle management page*/
-
-#vehicle-management{
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  margin-left: 2rem;
-}
-
-#vehicle-management a{
-  font-size: 1.2rem;
-}
-
-/*styling the form for adding new classification*/
-
-#classificationForm{
-  display: block;
-  margin: 0 auto;
-  width: 400px;
-  max-width: 700px;
-  height: 350px;
-  color: whitesmoke;
-  background-color: #08325e69;
-  border-radius: 3px;
-}
-
-#form-area{
-  padding: 5rem 2rem 1.5rem 2rerem;
-  border: 1px solid white;
-  margin: 5rem 0.6rem 0.8rem 0.6rem;
-}
-
-#classificationForm p, #classification h2{
-  color:whitesmoke;
-}
-@media  screen and (min-width:560px) {
-
-  
-#wrapper{
-  overflow-x: hidden;
-}
-
-.car-specs {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 300px;
-  background-color: green;
-  
-}
-
-.action{
+.contact p{
   color: black;
-  padding: 0.8rem;
-  background-color: #01B0D2;
-  width: 7rem;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-.car-details{
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  position: absolute;
-  width: 10rem;
-  height: 9rem;
-  background-color: rgba(255, 255, 255, 0.4) ;
-  left: 2rem;
-  top: 1rem;
-  font-size: 0.8rem;
-  font-family: sans-serif;
-  font-weight: bold;
-}
-
-.car-details ul li{
-  list-style-type: none;
-  margin-right: 1rem;
-  padding: 0.1rem;
-  color: #01B0D2;
-  font-size: 1rem;
-}
-
-
-.car-details h2{
-  margin-top: -0.5em;
-}
-.hero-image{
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 22rem;
-  height: 12rem;
-  bottom: 0;
-  top: 0.6rem;
-  left: 6.5rem;
-  z-index: -1;
-}
-
-.hero-image img{
-  width: 100%;
-  height: 100%;
-}
-
-.heading{
-  font-size: 1.2rem;
-  font-family: sans-serif;
-  margin-left: 0.4rem;
-}
-
-header{
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.6rem;
-}
-
-header a{
-  text-decoration: none;
-  color: black;
-}
-
-a.cse-motors{
   font-size: 1.5rem;
-  font-weight: bold;
-  font-family: sans-serif, Times, serif;
+  font-family: 'Roboto', sans-serif; /* Apply custom font */
 }
 
-a.my-account{
-  position: absolute;
-  font-weight: bold;
-  right: 0;
-  margin-right: 1.2rem;
-  top: 1.5rem;
-  font-family: sans-serif, Times, serif;
-
+.container{
+  background-color: #E8E4E1;
 }
 
-nav{
-  width: 100%;
-}
-
-nav ul{
+.container-header{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: black;
-  padding: 0.8rem;
-  margin: 0 0.5rem;
-}
-
-nav ul li{
-  list-style-type: none;
-  color: white;
-}
-
-nav ul li a{
-  text-decoration: none;
-  color: white;
-  font-family: sans-serif, 'Times New Roman', Times, serif;
-}
-
-nav ul li a:hover{
-  text-decoration: underline;
-}
-.car-details h2, p{
-  color: #01B0D2;
-}
-
-div.car-upgrades, div.car-parts{
-  width: 100%;
-}
-
-div.car-parts ul li{
-  font-size: 1.1rem;
-}
-.car-details ul{
-  margin-right: -4rem;
-}
-
-div.delorean-carUpgrades{
-  display: grid;
-  grid-auto-flow: row;
-  grid-template: 1fr 1fr/ 1fr 1fr;
-  gap: 1rem;
-  width: 100%;
-}
-
-div.upgrade-container{
-  display: flex;
-  justify-content:center ;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-}
-
-.image-container{
-  display: flex;
-  justify-content:center ;
-  align-items: center;
-  background-color: #01B0D2;
-  width: 100%;
-  height: 5.6rem;
-}
-
-.upgrade-detail{
-  text-decoration: underline;
-}
-
-footer p{
-  color: black;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-
-.car-details-upgrades{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 12rem;
-}
-
-}
-/*
-@media  screen and (min-width:762px) {
-
-  body{
-    background-image: url("../images/site/small_check.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
-  #inputValue{
-    color: white;
-    background-color: #007BFF;
-  }
-
-  #form-li{
-    margin-left: 1rem;
-  }
-
-  #searchAll{
-    width: 100%;
-    margin-left: 1rem;
-  }  
-
-  #input-container{
-    width: 10rem;
-    height: 3rem;
-  }
-
-  #searchButton{
-    width: 10rem;
-    margin-left: 1rem;
-  }
-  #wrapper{
-  overflow-x: hidden;
-  background-color: white;
-  border: 3px solid #01B0D2;
-  margin: 2px 4px 0 4px;
-  border-radius: 5px;
-}
-
-.car-specs {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 300px;
-  
-}
-
-.action{
-  color: black;
-  padding: 0.8rem;
-  background-color: #01B0D2;
-  width: 10rem;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.car-details{
-  display: flex;
-  justify-content: center;
-  align-items: left;
-  flex-direction: column;
-  position: absolute;
-  width: 12rem;
-  height: 10rem;
-  opacity: 0.7;
-  background-color: gainsboro;
-  left: 3.2rem;
-  top: 2.5rem;
-  font-size: 1.1rem;
-  font-family: sans-serif;
-  font-weight: bold;
-}
-
-.car-details li{
-  list-style-type: none;
-  margin-right: 1rem;
-  padding: 0.1rem;
-  color: #01B0D2;
-  font-size: 1rem;
-}
-
-
-.car-details h2{
-  margin-top: -0.5;
-}
-.hero-image{
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25rem;
-  height: 15rem;
-  bottom: 0;
-  top: 0.6rem;
-  left: 8rem;
-  z-index: 1;
-}
-
-.hero-image img{
-  width: 100%;
-  height: 100%;
-}
-
-.heading{
-  font-size: 1.2rem;
-  font-family: sans-serif;
-  margin-left: 0.4rem;
-}
-
-header{
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.6rem;
-}
-
-header a{
-  text-decoration: none;
+  padding: 2rem;
   color: black;
 }
 
-a.cse-motors{
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: sans-serif, Times, serif;
-}
-
-a.my-account{
-  position: absolute;
-  font-weight: bold;
-  right: 0;
-  margin-right: 1.2rem;
-  top: 1.5rem;
-  font-family: sans-serif, Times, serif;
-
-}
-
-nav{
-  width: 100%;
-}
-
-nav ul{
+.footer{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: black;
-  padding: 0.8rem;
-  margin: 0 0.5rem;
-}
-
-nav ul li{
-  list-style-type: none;
-  color: white;
-}
-
-nav ul li a{
-  text-decoration: none;
-  color: white;
-  font-family: sans-serif, 'Times New Roman', Times, serif;
-}
-
-nav ul li a:hover{
-  text-decoration: underline;
-}
-.car-details h2, p{
-  color: #01B0D2;
-}
-
-.car-details{
-  z-index: 2;
-}
-
-div.car-upgrades, div.car-parts{
-  width: 100%;
-}
-
-div.car-parts li{
-  font-size: 1.1rem;
-}
-
-div.delorean-carUpgrades{
-  display: grid;
-  grid-auto-flow: row;
-  grid-template: 1fr 1fr/ 1fr 1fr;
-  gap: 1rem;
-  width: 100%;
-}
-
-div.upgrade-container{
-  display: flex;
-  justify-content:center ;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-}
-
-.image-container{
-  display: flex;
-  justify-content:center ;
-  align-items: center;
-  background-color: #01B0D2;
-  width: 100%;
-  height: 5.6rem;
-}
-
-.upgrade-detail{
-  text-decoration: underline;
-}
-
-footer p{
+  padding: 2rem;
   color: black;
-  font-weight: bold;
-  font-size: 1rem;
+  background-color: #D4D2D1;
 }
 
-
-
-.car-details-upgrades{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-auto-flow: row;
-  gap: 1rem;
-  width: 100%;
-  margin-top: 22rem;
+.footer h3{
+  font-family: 'PT Sans', sans-serif; 
 }
 
-.car-upgrades{
-  margin-left: -1rem;
+.footer p{
+  font-family: 'PT Sans', sans-serif;
 }
 
-.car-parts{
-  margin-left:  1rem;
-  margin-top: -4rem;
-}
-
-}
-
-/** car details css*/
-/*
-.inventory-details{
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin: 0.5rem;
-  gap: 0.5rem;
-}
-
-/* css for the loginview*/
-/*
-#form-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: blueviolet;
-  width: 100%;
-  height: 100vh;
-  color: white;
-}
-
-#formElement{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 200px;
-  background-color: blue;
-  margin: 1rem 1rem;
-  padding: 1rem;
-  border-radius: 1rem;
- 
-}
-
-label{
-  text-align: left;
-  font-size: 2rem;
-}
-
-button.login-button{
-  width: 7rem;
-  border-radius: 2rem;
-  margin: 1rem auto;
-  padding: 0.5rem;
-}
-
-input[type="email"], input[type="text"]{
-  padding: 0.1rem;
-  border-radius: 0.5rem;
-  height: 1.4rem;
-  font-size: 1rem;
-}
-
-#signup-link a{
-  color: white;
-}
-
-8-*/
 @media  screen and (min-width:762px) {
 
   body{
