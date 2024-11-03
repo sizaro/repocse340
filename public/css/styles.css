@@ -445,21 +445,39 @@ display: flex;
 #newCarForm {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Align to the top for better spacing */
+  align-items: flex-start; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
-  max-width: 600px; /* Limit the maximum width */
-  background-color: #ffffff;
+  max-width: 400px;
+  background-color: #007bff;
+  color: whitesmoke;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: 20px;
   margin: 0 auto;
   overflow: auto; /* Add overflow to handle content if needed */
 }
 
+#newCarForm label, #newCarForm p{
+  color: whitesmoke;
+}
+
+#newCarForm button{
+  background-color: gray;
+}
+
+#newCarForm button:hover{
+  background-color: rgb(22, 3, 3);
+  padding: 0.5rem;
+}
 #newCarFormArea {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Gap between elements */
+  gap: 12px; /* Gap between elements */
+  width: 100%;
+  margin: 3rem 1rem 1erm 1rem;
 }
 
 #newCarFormArea h2 {
@@ -507,8 +525,7 @@ textarea:focus {
 }
 
 textarea {
-  resize: vertical; /* Allow vertical resizing only */
-  min-height: 80px; /* Set a minimum height */
+  resize: vertical; 
 }
 
 button[type="submit"] {
@@ -534,8 +551,41 @@ button[type="submit"]:hover {
   color: #d9534f; /* Red color for required field notice */
 }
 
+/** styling the vehicle management page*/
 
+#vehicle-management{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-left: 2rem;
+}
 
+#vehicle-management a{
+  font-size: 1.2rem;
+}
+
+/*styling the form for adding new classification*/
+
+#classificationForm{
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  max-width: 700px;
+  height: 350px;
+  color: whitesmoke;
+  background-color: #08325e69;
+  border-radius: 3px;
+}
+
+#form-area{
+  padding: 5rem 2rem 1.5rem 2rerem;
+  border: 1px solid white;
+  margin: 5rem 0.6rem 0.8rem 0.6rem;
+}
+
+#classificationForm p, #classification h2{
+  color:whitesmoke;
+}
 @media  screen and (min-width:560px) {
 
   
